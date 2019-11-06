@@ -232,7 +232,7 @@ public class TokenHolder extends BinderViewHolder<Token> implements View.OnClick
         @Override
         public void run()
         {
-            tokenLayout.setElevation(3);
+            tokenLayout.setElevation(1.0f);
             handler = null;
         }
     };
@@ -240,11 +240,11 @@ public class TokenHolder extends BinderViewHolder<Token> implements View.OnClick
     @Override
     public void onClick(View v) {
         if (onTokenClickListener != null) {
-            tokenLayout.setElevation(0.0f);
+            tokenLayout.setElevation(-3.0f);
             tokenLayout.setBackgroundResource(R.drawable.background_light_grey);
             onTokenClickListener.onTokenClick(v, token, null, true);
             handler = new Handler();
-            handler.postDelayed(clearElevation, 2000);
+            handler.postDelayed(clearElevation, 800);
         }
     }
 

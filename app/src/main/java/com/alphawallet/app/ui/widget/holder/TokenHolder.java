@@ -135,20 +135,6 @@ public class TokenHolder extends BinderViewHolder<Token> implements View.OnClick
         }
     }
 
-    private void setIncompleteData(int qty) {
-        textIncomplete.setVisibility(View.VISIBLE);
-        if (qty > 0) {
-            textIncomplete.setText(getContext().getString(R.string.status_incomplete_data_with_qty, String.valueOf(qty)));
-        } else {
-            textIncomplete.setVisibility(View.GONE);
-        }
-    }
-
-    private void hideStatusBlocks() {
-        textIncomplete.setVisibility(View.GONE);
-        textPending.setVisibility(View.GONE);
-    }
-
     public void fillCurrency(BigDecimal ethBalance, TokenTicker ticker) {
         stopTextAnimation();
         BigDecimal usdBalance = ethBalance.multiply(new BigDecimal(ticker.price)).setScale(2, RoundingMode.DOWN);

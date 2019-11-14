@@ -28,10 +28,8 @@ public class TransactionSortedItem extends TimestampSortedItem<TransactionMeta> 
             {
                 oldTx = value;
                 newTx = (TransactionMeta) other.value;
-
                 // Check if this is a written block replacing a pending block
                 if (oldTx.hash.equals(newTx.hash)) return 0; // match
-
                 //we were getting an instance where two transactions went through on the same
                 //block - so the timestamp was the same. The display flickered between the two transactions.
                 if (this.getTimestamp().equals(otherTimestamp.getTimestamp()))
@@ -63,6 +61,14 @@ public class TransactionSortedItem extends TimestampSortedItem<TransactionMeta> 
                 TransactionMeta oldTx = value;
                 TransactionMeta newTx = (TransactionMeta) newItem.value;
 
+<<<<<<< HEAD
+=======
+                if (oldTx.hash.equals(newTx.hash))
+                {
+                    System.out.println("yoless");
+                }
+
+>>>>>>> Fix transaction update
                 boolean hashMatch = oldTx.hash.equals(newTx.hash);
                 boolean pendingMatch = oldTx.isPending == newTx.isPending;
 
@@ -88,6 +94,11 @@ public class TransactionSortedItem extends TimestampSortedItem<TransactionMeta> 
             {
                 TransactionMeta oldTx = value;
                 TransactionMeta newTx = (TransactionMeta) other.value;
+
+                if (oldTx.hash.equals(newTx.hash))
+                {
+                    System.out.println("yoless");
+                }
 
                 return oldTx.hash.equals(newTx.hash);
             }

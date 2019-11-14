@@ -362,7 +362,7 @@ public class TransactionHolder extends BinderViewHolder<TransactionMeta> impleme
         }
         else
         {
-            valueStr = getValueStr(operation.value, isSent, symbol, decimals, self);
+            valueStr = getValueStr(operation.value, isSent, symbol, decimals, from.equalsIgnoreCase(operation.to));
         }
 
         this.value.setText(valueStr);

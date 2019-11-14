@@ -609,4 +609,5 @@ public class Ticket extends Token implements Parcelable
 
     @Override
     public boolean isERC875() { return true; }
+    public boolean isNonFungible() { return true; }
 }

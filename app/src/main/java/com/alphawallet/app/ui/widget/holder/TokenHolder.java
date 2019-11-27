@@ -59,7 +59,6 @@ public class TokenHolder extends BinderViewHolder<Token> implements View.OnClick
     private final AssetDefinitionService assetDefinition; //need to cache this locally, unless we cache every string we need in the constructor
     private final TextView pendingText;
     private final RelativeLayout tokenLayout;
-    private final LinearLayout extendedInfo;
     private Handler handler;
 
     public Token token;
@@ -99,7 +98,6 @@ public class TokenHolder extends BinderViewHolder<Token> implements View.OnClick
 
         try
         {
-            icon.setVisibility(View.GONE);
             symbolAux.setVisibility(View.GONE);
             //tokenLayout.setBackgroundResource(R.drawable.background_marketplace_event);
             blockchain.setText(getString(R.string.blockchain, token.getNetworkName()));

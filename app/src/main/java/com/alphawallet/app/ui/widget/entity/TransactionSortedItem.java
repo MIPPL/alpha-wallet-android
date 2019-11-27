@@ -60,15 +60,10 @@ public class TransactionSortedItem extends TimestampSortedItem<TransactionMeta> 
             {
                 TransactionMeta oldTx = value;
                 TransactionMeta newTx = (TransactionMeta) newItem.value;
-
-<<<<<<< HEAD
-=======
                 if (oldTx.hash.equals(newTx.hash))
                 {
                     System.out.println("yoless");
                 }
-
->>>>>>> Fix transaction update
                 boolean hashMatch = oldTx.hash.equals(newTx.hash);
                 boolean pendingMatch = oldTx.isPending == newTx.isPending;
 

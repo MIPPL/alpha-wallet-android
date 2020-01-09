@@ -491,7 +491,7 @@ public class AssetDefinitionService implements ParseResult, AttributeInterface
 
     private void handleFileLoad(File newFile)
     {
-        if (newFile != null && !newFile.getName().equals("cache") && newFile.canRead())
+        if (newFile != null /* && !newFile.getName().equals("cache")*/ && newFile.canRead())
         {
             addContractAddresses(newFile);
             context.sendBroadcast(new Intent(C.ADDED_TOKEN)); //inform walletview there is a new token

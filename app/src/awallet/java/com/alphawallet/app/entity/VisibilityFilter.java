@@ -21,7 +21,10 @@ public class VisibilityFilter
         if (!token.hasDebugTokenscript && !token.hasPositiveBalance()) filterResult = false;
         if (token.isTerminated() || token.isBad()) badToken = true;
 
-        if (token.isEthereum() && token.tokenInfo.chainId == EthereumNetworkRepository.MAINNET_ID) filterResult = true;
+        if ( (token.isEthereum() && token.tokenInfo.chainId == EthereumNetworkRepository.MAINNET_ID)
+            || token.isSwyftToken() )
+            filterResult = true;
+
         return !badToken && filterResult;
     }
 

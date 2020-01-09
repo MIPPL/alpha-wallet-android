@@ -1,5 +1,6 @@
 package com.alphawallet.app.ui;
 
+import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.alphawallet.app.entity.BackupTokenCallback;
 import com.alphawallet.app.entity.ErrorEnvelope;
 import com.alphawallet.app.entity.VisibilityFilter;
 import com.alphawallet.app.entity.tokens.Token;
+import com.alphawallet.app.entity.tokens.TokenInfo;
 import com.alphawallet.app.entity.tokens.TokenInterface;
 import com.alphawallet.app.entity.tokens.TokensReceiver;
 import com.alphawallet.app.entity.Wallet;
@@ -32,9 +34,15 @@ import com.alphawallet.app.ui.widget.holder.WarningHolder;
 import com.alphawallet.app.util.TabUtils;
 
 import dagger.android.support.AndroidSupportInjection;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 import com.alphawallet.app.C;
 import com.alphawallet.app.R;
 import com.alphawallet.app.interact.GenericWalletInteract;
+import com.alphawallet.app.viewmodel.AddTokenViewModel;
+import com.alphawallet.app.viewmodel.AddTokenViewModelFactory;
 import com.alphawallet.app.viewmodel.WalletViewModel;
 import com.alphawallet.app.viewmodel.WalletViewModelFactory;
 import com.alphawallet.app.widget.ProgressView;
@@ -59,9 +67,10 @@ public class WalletFragment extends Fragment implements OnTokenClickListener, Vi
     @Inject
     WalletViewModelFactory walletViewModelFactory;
     private WalletViewModel viewModel;
+    AddTokenViewModelFactory addTokenViewModelFactory;
+    AddTokenViewModel addTokenViewModel;
 
     private TokensReceiver tokenReceiver;
-
     private SystemView systemView;
     private ProgressView progressView;
     private TokensAdapter adapter;
@@ -239,9 +248,27 @@ public class WalletFragment extends Fragment implements OnTokenClickListener, Vi
 
     private void onTokens(Token[] tokens)
     {
+        boolean stqFound = false;
+        boolean swyfttFound = false;
         if (tokens != null)
         {
-            adapter.setTokens(tokens);
+            for(Token token : tokens) {
+                if (token.tokenInfo.symbol.equals("STQ"))   {
+                    stqFound = true;
+                }
+                if (token.tokenInfo.symbol.equals("SWYFTT"))   {
+                    swyfttFound = true;
+                }
+            }
+
+            if ( !stqFound || !swyfttFound) {
+                if ( !stqFound )     viewModel.save("0x5C3A228510d246b78A3765c20221CBf3082b44A4", "STQ", 18, "Storiqa Token", 1);
+                if ( !swyfttFound )     viewModel.save("0xA1248c718d52752b2cC257eeb0eBa900408dAeB8", "SWYFTT", 18, "SWYFT Token", 1);
+                refreshTokens(true);
+            }
+            else {
+                adapter.setTokens(tokens);
+            }
         }
     }
 

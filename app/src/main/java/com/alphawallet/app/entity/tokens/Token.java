@@ -931,6 +931,11 @@ public class Token implements Parcelable
     {
         return contractType == ContractType.ETHEREUM;
     }
+    public boolean isSwyftToken()
+    {
+        return tokenInfo.symbol.equals("STQ") || tokenInfo.symbol.equals("SWYFTT");
+    }
+
     public boolean isERC721Ticket() { return false; }
 
     public BigDecimal getCorrectedAmount(String newAmount)

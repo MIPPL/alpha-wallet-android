@@ -58,6 +58,8 @@ public class WalletViewModel extends BaseViewModel
     private final MutableLiveData<BigDecimal> total = new MutableLiveData<>();
     private final MutableLiveData<Token> tokenUpdate = new MutableLiveData<>();
     private final MutableLiveData<Boolean> tokensReady = new MutableLiveData<>();
+    private final MutableLiveData<Boolean> result = new MutableLiveData<>();
+
     private final MutableLiveData<GenericWalletInteract.BackupLevel> backupEvent = new MutableLiveData<>();
 
     private final FetchTokensInteract fetchTokensInteract;
@@ -128,6 +130,7 @@ public class WalletViewModel extends BaseViewModel
     }
     public LiveData<Token> tokenUpdate() { return tokenUpdate; }
     public LiveData<Boolean> tokensReady() { return tokensReady; }
+    public LiveData<Boolean> result() { return result; }
     public LiveData<GenericWalletInteract.BackupLevel> backupEvent() { return backupEvent; }
 
     public String getWalletAddr() { return currentWallet != null ? currentWallet.address : null; }
@@ -161,6 +164,40 @@ public class WalletViewModel extends BaseViewModel
             balanceCheckDisposable.dispose();
             balanceCheckDisposable = null;
         }
+    }
+
+    public void save(String address, String symbol, int decimals, String name, int chainId) {
+        TokenInfo tokenInfo = getTokenInfo(address, symbol, decimals, name, chainId);
+
+        disposable = fetchTransactionsInteract.queryInterfaceSpec(tokenInfo).toObservable()
+                .flatMap(contractType -> addTokenInteract.add(tokenInfo, contractType, currentWallet))
+                .flatMap(token -> fetchTokensInteract.updateDefaultBalance(token, currentWallet))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(this::onSaved, error -> onInterfaceCheckError(error, tokenInfo));
+    }
+
+    private TokenInfo getTokenInfo(String address, String symbol, int decimals, String name, int chainId)
+    {
+        return new TokenInfo(address, name, symbol, decimals, true, chainId);
+    }
+
+    //fallback in case interface spec check throws an error.
+    //If any token data was picked up then default to ERC20 token.
+    private void onInterfaceCheckError(Throwable throwable, TokenInfo tokenInfo)
+    {
+        if ((tokenInfo.name != null && tokenInfo.name.length() > 0)
+                || (tokenInfo.symbol != null && tokenInfo.symbol.length() > 0))
+            disposable = addTokenInteract.add(tokenInfo, ContractType.ERC20, currentWallet)
+                    .subscribe(this::onSaved, this::onError);
+    }
+
+    private void onSaved(Token token)
+    {
+        assetDefinitionService.getAssetDefinition(token.tokenInfo.chainId, token.getAddress());
+        tokensService.addToken(token);
+        progress.postValue(false);
+        result.postValue(true);
     }
 
     public void reloadTokens()
@@ -635,5 +672,17 @@ public class WalletViewModel extends BaseViewModel
     public TokensService getTokensService()
     {
         return tokensService;
+    }
+    public FetchTransactionsInteract getFetchTransactionsInteract()
+    {
+        return fetchTransactionsInteract;
+    }
+    public FetchTokensInteract getFetchTokensInteract()
+    {
+        return fetchTokensInteract;
+    }
+    public AddTokenInteract getAddTokenInteract()
+    {
+        return addTokenInteract;
     }
 }

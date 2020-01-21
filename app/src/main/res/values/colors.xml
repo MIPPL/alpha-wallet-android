@@ -78,6 +78,8 @@
 	<color name="nasty_green">#75b943</color>
 	<color name="inactive_green">#d7ebc8</color>
 	<color name="material_green">#009688</color>
+	<color name="swyft_orange">#FF9B06</color>
+    <color name="swyft_orange_disabled">#f9d021</color>
 
 	<color name="viewfinder_mask">#60000000</color>
 	<color name="viewfinder_laser">#ffcc0000</color>

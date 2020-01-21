@@ -11,13 +11,14 @@
         android:layout_above="@id/layout_new_wallet"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
+        android:visibility="visible"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/splash_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_logo"
+            android:background="@drawable/swyft_splash"
             android:gravity="center_horizontal"/>
 
         <TextView
@@ -33,7 +34,7 @@
 
     <LinearLayout
         android:id="@+id/layout_new_wallet"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -45,7 +46,7 @@
             android:id="@+id/button_create"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/nasty_green"
+            android:background="@color/swyft_orange"
             android:layout_marginBottom="25dp"
             android:text="@string/create_a_new_wallet"
             android:elevation="2dp"
@@ -90,7 +91,7 @@
                 android:layout_marginEnd="4dp"
                 android:padding="2dp"
                 android:textAllCaps="true"
-                android:textColor="@color/tealish"/>
+                android:textColor="@color/swyft_orange"/>
 
             <Button
                 android:id="@+id/button_import"
@@ -103,7 +104,7 @@
                 android:layout_marginStart="4dp"
                 android:padding="2dp"
                 android:textAllCaps="true"
-                android:textColor="@color/tealish"/>
+                android:textColor="@color/swyft_orange"/>
 
         </LinearLayout>
     </LinearLayout>

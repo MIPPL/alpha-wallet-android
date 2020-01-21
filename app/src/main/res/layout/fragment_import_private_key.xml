@@ -64,7 +64,7 @@
         android:layout_marginBottom="25dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:background="@color/nasty_green"
+        android:background="@color/swyft_orange"
         android:fontFamily="@font/font_semibold"
         android:text="@string/title_import"
         android:textAllCaps="true"

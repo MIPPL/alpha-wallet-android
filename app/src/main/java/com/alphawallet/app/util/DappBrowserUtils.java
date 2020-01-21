@@ -61,6 +61,18 @@ public class DappBrowserUtils {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String myDappsJson = prefs.getString("my_dapps", "");
 
+        myDappsJson = "[" +
+        "{\"name\": \"Redeem\", \"description\": \"Redeem\", \"url\": \"https://redeem.swyft.network/\", \"category\": \"Directory\"},"+
+        "{\"name\": \"Vesting\", \"description\": \"Vesting\", \"url\": \"https://harvest.swyft.network/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Buy\", \"description\": \"Buy\", \"url\": \"https://buy.swyft.network/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"STQ Swap\", \"description\": \"STQ Swap\", \"url\": \"https://swap.swyft.network\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Swyft Call\", \"description\": \"Swyft Call\", \"url\": \"https://harvest.swyft.network/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Dashboard\", \"description\": \"Dashboard\", \"url\": \"http://my.swyft.network\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Blog\", \"description\": \"Blog\", \"url\": \"https://www.swyft.network/swyft-blog/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"CoinMarketCap\", \"description\": \"CoinMarketCap\", \"url\": \"https://coinmarketcap.com/currencies/swyft/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Exchange\", \"description\": \"Exchange\", \"url\": \"https://exchange.swyft.network\", \"category\": \"Finance\"}"+
+        "]";
+
         List<DApp> dapps = getPrimarySites(context);
 
         if (!myDappsJson.isEmpty()) {

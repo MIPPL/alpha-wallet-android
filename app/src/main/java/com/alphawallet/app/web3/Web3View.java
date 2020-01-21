@@ -85,7 +85,7 @@ public class Web3View extends WebView {
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
         webSettings.setUserAgentString(webSettings.getUserAgentString()
-                                               + "AlphaWallet(Platform=Android&AppVersion=" + BuildConfig.VERSION_NAME + ")");
+                                               + "SwyftWallet(Platform=Android&AppVersion=" + BuildConfig.VERSION_NAME + ")");
         WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
         addJavascriptInterface(new SignCallbackJSInterface(
                 this,

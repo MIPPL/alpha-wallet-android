@@ -304,6 +304,7 @@
     <string name="label_important">Important</string>
     <string name="eth_00">0.00 ETH</string>
     <string name="toolbar_title_wallets">Change Wallet</string>
+    <string name="discord">Discord</string>
     <string name="facebook">Facebook</string>
     <string name="twitter">Twitter</string>
     <string name="erc20">ERC 20</string>
@@ -441,7 +442,8 @@
     <string name="dialog_load_as_contract">Load Token</string>
     <string name="blockchain">%1$s Blockchain</string>
     <string name="currency_00">0.00 %s</string>
-    <string name="telegram">Telegram</string>
+    <string name="telegram">Telegram Social</string>
+    <string name="telegram2">Telegram ANN</string>
     <string name="wrong_chain">Please switch to %s in settings</string>
     <string name="wrong_chain_title">Wallet set to wrong chain</string>
     <string name="wrong_token">Switch to token at address: %s</string>

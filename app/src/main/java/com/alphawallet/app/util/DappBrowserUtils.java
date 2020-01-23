@@ -66,10 +66,10 @@ public class DappBrowserUtils {
         "{\"name\": \"Vesting\", \"description\": \"Vesting\", \"url\": \"https://harvest.swyft.network/\", \"category\": \"Finance\"},"+
         "{\"name\": \"Buy\", \"description\": \"Buy\", \"url\": \"https://buy.swyft.network/\", \"category\": \"Finance\"},"+
         "{\"name\": \"STQ Swap\", \"description\": \"STQ Swap\", \"url\": \"https://swap.swyft.network\", \"category\": \"Finance\"},"+
-        "{\"name\": \"Swyft Call\", \"description\": \"Swyft Call\", \"url\": \"https://harvest.swyft.network/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Swyft Call\", \"description\": \"Swyft Call\", \"url\": \"https://call.swyft.network/\", \"category\": \"Finance\"},"+
         "{\"name\": \"Dashboard\", \"description\": \"Dashboard\", \"url\": \"http://my.swyft.network\", \"category\": \"Finance\"},"+
         "{\"name\": \"Blog\", \"description\": \"Blog\", \"url\": \"https://www.swyft.network/swyft-blog/\", \"category\": \"Finance\"},"+
-        "{\"name\": \"CoinMarketCap\", \"description\": \"CoinMarketCap\", \"url\": \"https://coinmarketcap.com/currencies/swyft/\", \"category\": \"Finance\"},"+
+        "{\"name\": \"Marketplace\", \"description\": \"Marketplace\", \"url\": \"https://market.swyft.network/\", \"category\": \"Finance\"},"+
         "{\"name\": \"Exchange\", \"description\": \"Exchange\", \"url\": \"https://exchange.swyft.network\", \"category\": \"Finance\"}"+
         "]";
 

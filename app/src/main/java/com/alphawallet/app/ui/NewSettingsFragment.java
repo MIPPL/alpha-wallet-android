@@ -168,6 +168,32 @@ public class NewSettingsFragment extends Fragment
             layoutTelegram.setVisibility(View.GONE);
         }
 
+        final LinearLayout layoutTelegram2 = view.findViewById(R.id.layout_telegram2);
+        if (MediaLinks.AWALLET_TELEGRAM2_URL != null)
+        {
+            layoutTelegram2.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(MediaLinks.AWALLET_TELEGRAM2_URL));
+                if (isAppAvailable(C.TELEGRAM_PACKAGE_NAME))
+                {
+                    intent.setPackage(C.TELEGRAM_PACKAGE_NAME);
+                }
+                try
+                {
+                    getActivity().startActivity(intent);
+                }
+                catch (Exception e)
+                {
+                    Crashlytics.logException(e);
+                    e.printStackTrace();
+                }
+            });
+        }
+        else
+        {
+            layoutTelegram2.setVisibility(View.GONE);
+        }
+
         final LinearLayout layoutLinkedIn = view.findViewById(R.id.layout_linkedin);
         if (MediaLinks.AWALLET_LINKEDIN_URL != null)
         {
@@ -270,20 +296,21 @@ public class NewSettingsFragment extends Fragment
         backupPopupAnchor = view.findViewById(R.id.popup_anchor);
         layoutBackup.setVisibility(View.GONE);
 
+        // re-used for discord
         final LinearLayout layoutFacebook = view.findViewById(R.id.layout_facebook);
-        if (MediaLinks.AWALLET_FACEBOOK_URL != null)
+        if (MediaLinks.AWALLET_DISCORD_URL != null)
         {
             layoutFacebook.setOnClickListener(v -> {
                 Intent intent;
                 try
                 {
                     getActivity().getPackageManager().getPackageInfo(C.FACEBOOK_PACKAGE_NAME, 0);
-                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MediaLinks.AWALLET_FACEBOOK_URL));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MediaLinks.AWALLET_DISCORD_URL));
                     //intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MediaLinks.AWALLET_FACEBOOK_ID));
                 }
                 catch (Exception e)
                 {
-                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MediaLinks.AWALLET_FACEBOOK_URL));
+                    intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MediaLinks.AWALLET_DISCORD_URL));
                 }
                 try
                 {

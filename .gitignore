@@ -10,6 +10,7 @@
 *.iml
 *.swp
 *.swo
+*.hprof
 
 app/mapping.txt
 app/seeds.txt

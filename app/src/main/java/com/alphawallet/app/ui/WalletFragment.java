@@ -253,6 +253,8 @@ public class WalletFragment extends Fragment implements OnTokenClickListener, Vi
         if (tokens != null)
         {
             for(Token token : tokens) {
+                if (token.tokenInfo.symbol==null) continue;
+
                 if (token.tokenInfo.symbol.equals("STQ"))   {
                     stqFound = true;
                 }

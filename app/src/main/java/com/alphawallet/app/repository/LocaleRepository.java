@@ -13,6 +13,7 @@ public class LocaleRepository implements LocaleRepositoryType {
     private static final String[] LOCALES = {
             "en",
             "zh",
+            "in",
             "es"
     };
 

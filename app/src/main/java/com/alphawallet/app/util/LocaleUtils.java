@@ -3,6 +3,7 @@ package com.alphawallet.app.util;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.text.format.DateUtils;
 import android.util.DisplayMetrics;
 
@@ -25,7 +26,12 @@ public class LocaleUtils {
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
         conf.locale = mLocale;
-        res.updateConfiguration(conf, dm);
+        if (Build.VERSION.SDK_INT >= 17) {
+            conf.setLocale(mLocale);
+            context = context.createConfigurationContext(conf);
+        } else {
+            res.updateConfiguration(conf, dm);
+        }
     }
 
     public static Date getLocalDateFromTimestamp(long timeStampInSec) {

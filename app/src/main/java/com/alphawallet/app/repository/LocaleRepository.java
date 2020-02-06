@@ -12,7 +12,7 @@ import com.alphawallet.app.entity.LocaleItem;
 public class LocaleRepository implements LocaleRepositoryType {
     private static final String[] LOCALES = {
             "en",
-            "zh",
+            //"zh",
             "in",
             "es"
     };

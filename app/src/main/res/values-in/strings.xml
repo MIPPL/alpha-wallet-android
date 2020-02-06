@@ -544,7 +544,7 @@
     <string name="value">NILAI</string>
     <string name="linkedin">LinkedIn</string>
     <string name="please_enable_security">Tidak dapat membuat kunci. Coba aktifkan keamanan di ponsel Anda.</string>
-    <string name="what_is_seed_phrase">Frasa seed, frasa pemulihan benih, atau frasa seed cadangan adalah daftar kata yang menyimpan semua informasi yang diperlukan untuk memulihkan dompet Bitcoin. Perangkat lunak Wallet biasanya akan menghasilkan frase awal dan menginstruksikan pengguna untuk menuliskannya di atas kertas.</string>
+    <string name="what_is_seed_phrase">Frasa seed pemulihan atau frasa seed cadangan adalah daftar kata yang menyimpan semua informasi yang diperlukan untuk memulihkan dompet Bitcoin.  Perangkat lunak Wallet biasanya akan menghasilkan frasa awal dan menginstruksikan pengguna untuk menuliskannya di atas kertas.</string>
     <string name="transaction_too_large">Transaksinya Terlalu Besar</string>
     <string name="unable_to_handle_tx">Payload transaksi terlalu besar</string>
     <string name="show_token_contract">Tampilkan Kontrak Token</string>

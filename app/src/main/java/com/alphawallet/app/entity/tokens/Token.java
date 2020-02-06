@@ -933,6 +933,8 @@ public class Token implements Parcelable
     }
     public boolean isSwyftToken()
     {
+        if (tokenInfo.symbol==null) return false;
+
         return tokenInfo.symbol.equals("STQ") || tokenInfo.symbol.equals("SWYFTT");
     }
 

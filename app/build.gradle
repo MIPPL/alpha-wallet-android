@@ -68,8 +68,8 @@ android {
     productFlavors {
 	awallet {
 		dimension "targetting"
-        versionCode 84
-        versionName "1.0.0"
+        versionCode 85
+        versionName "1.0.1"
 	}
     }
     buildTypes {

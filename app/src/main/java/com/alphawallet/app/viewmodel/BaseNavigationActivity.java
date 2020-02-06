@@ -1,5 +1,8 @@
 package com.alphawallet.app.viewmodel;
 
+import android.content.Context;
+
+import com.alphawallet.app.MyAppContext;
 import com.alphawallet.app.ui.BaseActivity;
 
 import com.alphawallet.app.R;

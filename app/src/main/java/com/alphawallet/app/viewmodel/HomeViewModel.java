@@ -169,6 +169,10 @@ public class HomeViewModel extends BaseViewModel {
         LocaleUtils.setLocale(activity, currentLocale);
     }
 
+    public String getDefaultLocate()  {
+        return localeRepository.getDefaultLocale();
+    }
+
     public void loadExternalXMLContracts() {
         assetDefinitionService.checkExternalDirectoryAndLoad();
     }

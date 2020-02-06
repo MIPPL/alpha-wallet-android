@@ -116,9 +116,9 @@
     <string name="export_keystore_detail">Un Keystore es un fichero de texto. Puede copiar su contenido y pegarlo cuando quiera importar su cartera.</string>
     <string name="seed_phrase">Frase semilla</string>
     <string name="test_seed_phrase">Probar mi frase semilla</string>
-    <string name="make_a_backup">Making backup is very simple and safe just write down %1$s words and keep them in a safe place, offline.</string>
-    <string name="keystore_detail_text">A KeyStore is a text file. You can copy its content and place when you want to import your wallet. This is a safe way to back up a wallet.</string>
-    <string name="set_keystore_password">Set Keystore Password</string>
+    <string name="make_a_backup">Realizar una copia de seguridad es muy simple y seguro. Simplemente escriba las %1$s palabras y guárdelas en un sitio seguro sin conexión a internet.</string>
+    <string name="keystore_detail_text">Un Keystore es un fichero de texto. Puede copiar su contenido y pegarlo cuando quiera importar su cartera. Es un modo seguro de hacer una copia de seguridad.</string>
+    <string name="set_keystore_password">Establecer una contraseña de Keystore</string>
     <string name="keystore_loss_warning">NOTE: You must remember your password. We do not store your password elsewhere. KeyStore is always encrypted, otherwise whoever has it can gain the money.</string>
     <string name="share_keystore">Share Keystore</string>
     <string name="tab_seed">Seed</string>

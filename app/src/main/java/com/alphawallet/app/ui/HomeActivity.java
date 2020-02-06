@@ -33,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.alphawallet.app.MyAppContext;
 import com.alphawallet.app.entity.VisibilityFilter;
 import com.alphawallet.app.repository.EthereumNetworkRepository;
 import com.github.florent37.tutoshowcase.TutoShowcase;
@@ -136,11 +137,6 @@ public class HomeActivity extends BaseNavigationActivity implements View.OnClick
         };
 
         ProcessLifecycleOwner.get().getLifecycle().addObserver(lifeCycle);
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
     }
 
     @Override

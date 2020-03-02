@@ -26,12 +26,12 @@ public class LocaleUtils {
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
         conf.locale = mLocale;
-        if (Build.VERSION.SDK_INT >= 17) {
+        /*if (Build.VERSION.SDK_INT >= 17) {
             conf.setLocale(mLocale);
             context = context.createConfigurationContext(conf);
-        } else {
+        } else {*/
             res.updateConfiguration(conf, dm);
-        }
+        //}
     }
 
     public static Date getLocalDateFromTimestamp(long timeStampInSec) {
